@@ -1,3 +1,119 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrinceXmods - Login</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      background: #090d19;
+      color: white;
+      font-family: Arial, sans-serif;
+    }
+    .card {
+      width: 90%;
+      max-width: 380px;
+      padding: 28px;
+      background: #151d30;
+      border-radius: 18px;
+      text-align: center;
+    }
+    h1 { color: #d8b45b; }
+    input, button {
+      width: 100%;
+      padding: 14px;
+      margin: 9px 0;
+      border-radius: 9px;
+      border: none;
+    }
+    input { background: #26334b; color: white; }
+    button {
+      background: #d8b45b;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    #message { color: #f5c66a; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>♛ PrinceXmods</h1>
+    <p>Watch. Earn. Get rewarded.</p>
+    <h2 id="heading">Create Account</h2>
+    <input id="email" type="email" placeholder="Email address">
+    <input id="password" type="password" placeholder="Password (6+ characters)">
+    <button id="signup">Sign Up</button>
+    <button id="login">Login</button>
+    <button id="logout" hidden>Logout</button>
+    <p id="message"></p>
+    <p id="user"></p>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from
+      "https://www.gstatic.com/firebasejs/12.5.0/firebase-app.js";
+    import {
+      getAuth, createUserWithEmailAndPassword,
+      signInWithEmailAndPassword, signOut,
+      onAuthStateChanged
+    } from
+      "https://www.gstatic.com/firebasejs/12.5.0/firebase-auth.js";
+
+    const firebaseConfig = {
+      apiKey: "YOUR_API_KEY",
+      authDomain: "YOUR_PROJECT.firebaseapp.com",
+      projectId: "YOUR_PROJECT_ID",
+      appId: "YOUR_APP_ID"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const message = document.getElementById("message");
+
+    document.getElementById("signup").onclick = async () => {
+      try {
+        await createUserWithEmailAndPassword(
+          auth, email.value, password.value
+        );
+        message.textContent = "Account created successfully!";
+      } catch (e) {
+        message.textContent = e.message;
+      }
+    };
+
+    document.getElementById("login").onclick = async () => {
+      try {
+        await signInWithEmailAndPassword(
+          auth, email.value, password.value
+        );
+        message.textContent = "Login successful!";
+      } catch (e) {
+        message.textContent = e.message;
+      }
+    };
+
+    document.getElementById("logout").onclick = async () => {
+      await signOut(auth);
+      message.textContent = "Logged out!";
+    };
+
+    onAuthStateChanged(auth, user => {
+      document.getElementById("user").textContent =
+        user ? "Logged in: " + user.email : "Not logged in";
+      document.getElementById("logout").hidden = !user;
+    });
+  </script>
+</body>
+</html>
 <!doctype html>
 <html lang="en">
 <head>

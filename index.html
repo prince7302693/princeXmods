@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<title>PrinceXmods — Rewards</title>
+<style>
+:root{--bg:#080d1b;--panel:#111a2e;--panel2:#17233d;--text:#f5f7ff;--muted:#a8b4cc;--blue:#4f7cff;--cyan:#50d6e8;--line:#263552;--green:#39d6a0}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 80% 0%,#172b55 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{width:min(100% - 28px,1050px);margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:20px 0}.brand{font-weight:900;letter-spacing:.2px;font-size:1.2rem}.crown{color:#ffd166}.pill{border:1px solid #38517e;color:#c9d8ff;padding:6px 11px;border-radius:99px;font-size:.78rem}
+.hero{padding:24px 0 20px}.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(2rem,7vw,3.5rem);line-height:1.06;margin:10px 0}.hero p{color:var(--muted);max-width:580px;margin:0}
+.grid{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin:22px 0}.card{background:linear-gradient(145deg,#15213a,#10182b);border:1px solid var(--line);border-radius:22px;padding:20px;box-shadow:0 14px 35px #0003}
+.balance{background:linear-gradient(120deg,#2855c7,#5534a6);border:0}.label{font-size:.82rem;color:#d5def7}.amount{font-size:2.5rem;font-weight:900;letter-spacing:-1px;margin:4px 0}.small{font-size:.82rem;color:var(--muted)}.balance .small{color:#e0e7ff}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:17px}button{border:0;border-radius:13px;padding:12px 16px;font-weight:800;font-size:.95rem;cursor:pointer;background:var(--blue);color:white}button.secondary{background:#263653;color:#e8eeff;border:1px solid #3a4d70}button:disabled{opacity:.45;cursor:not-allowed}
+.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#0d1527;border:1px solid var(--line);border-radius:15px;padding:13px}.stat b{display:block;font-size:1.35rem}.stat span{font-size:.78rem;color:var(--muted)}
+h2{font-size:1.08rem;margin:0 0 12px}.task{display:flex;align-items:center;gap:12px;padding:13px 0;border-top:1px solid var(--line)}.task:first-of-type{border-top:0}.taskicon{width:42px;height:42px;display:grid;place-items:center;background:#22365b;border-radius:13px;font-size:1.2rem}.taskmain{flex:1}.taskmain b{display:block}.taskmain span{font-size:.8rem;color:var(--muted)}
+.notice{background:#282116;border:1px solid #69502a;color:#f8dfaa;border-radius:14px;padding:12px 14px;font-size:.82rem;margin:14px 0}
+form{display:grid;gap:10px}input{width:100%;padding:13px 14px;border-radius:12px;border:1px solid #344766;background:#0b1426;color:white;font:inherit}input::placeholder{color:#8493ad}.history{color:var(--muted);font-size:.86rem}.empty{padding:12px;border:1px dashed #344766;border-radius:12px;text-align:center}
+footer{color:#8290aa;font-size:.78rem;padding:24px 0 38px;text-align:center}
+@media(max-width:700px){.grid{grid-template-columns:1fr}.top{padding:16px 0}.card{padding:17px}.hero{padding-top:16px}.stats{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><span class="crown">👑</span> PrinceXmods</div><div class="pill">REWARDS DEMO</div></header>
+<section class="hero"><div class="eyebrow">Watch · Earn · Redeem</div><h1>Your rewards,<br>your progress.</h1><p>A clean rewards dashboard built for mobile. Explore the demo experience before real ads and payouts are connected.</p></section>
+<section class="grid">
+<div class="card balance"><div class="label">DEMO WALLET BALANCE</div><div class="amount" id="points">0 pts</div><div class="small">Demo points only · Not cash or withdrawable</div><div class="actions"><button id="watch">▶ Watch demo ad</button><button class="secondary" id="reset">Reset demo</button></div></div>
+<div class="card"><h2>Your activity</h2><div class="stats"><div class="stat"><b id="ads">0</b><span>Demo ads completed</span></div><div class="stat"><b id="earned">0</b><span>Demo points earned</span></div></div><div class="notice">This preview does not show real advertisements and does not pay money. Never pay a fee to claim a reward.</div></div>
+</section>
+<section class="grid">
+<div class="card"><h2>Earn rewards</h2><div class="task"><div class="taskicon">📺</div><div class="taskmain"><b>Watch a rewarded ad</b><span>Ad network integration required</span></div><span class="pill">Setup pending</span></div><div class="task"><div class="taskicon">🎁</div><div class="taskmain"><b>Daily bonus</b><span>Can be enabled after account system is ready</span></div><span class="pill">Coming soon</span></div><div class="task"><div class="taskicon">👥</div><div class="taskmain"><b>Invite friends</b><span>Referral tracking not connected</span></div><span class="pill">Coming soon</span></div></div>
+<div class="card"><h2>UPI withdrawal preview</h2><p class="small">This form is a visual demo only. It will not send a payout or collect/store your UPI ID.</p><form id="withdraw"><input aria-label="UPI ID" placeholder="name@bank (demo only)" autocomplete="off"><input aria-label="Points" type="number" min="1" placeholder="Points to redeem"><button type="submit" class="secondary">Preview withdrawal</button></form><p id="withdrawMsg" class="small" role="status"></p></div>
+</section>
+<section class="card"><h2>Recent activity</h2><div id="history" class="history empty">No demo activity yet.</div></section>
+<footer>© 2026 PrinceXmods · Prototype only · Real rewards require verified accounts, approved ad integration and secure payout processing.</footer>
+</div>
+<script>
+let points=0,ads=0;const $=id=>document.getElementById(id);
+function render(){ $('points').textContent=points+' pts';$('ads').textContent=ads;$('earned').textContent=points; }
+$('watch').addEventListener('click',()=>{ads++;points+=10;render();$('history').className='history';$('history').textContent='Demo ad completed · +10 demo points · This is not a real ad or cash reward.';});
+$('reset').addEventListener('click',()=>{points=0;ads=0;render();$('history').className='history empty';$('history').textContent='No demo activity yet.';$('withdrawMsg').textContent='';});
+$('withdraw').addEventListener('submit',e=>{e.preventDefault();$('withdrawMsg').textContent='Demo only: no withdrawal was submitted. Real UPI payouts are not connected.';});
+</script>
+</body>
+</html>

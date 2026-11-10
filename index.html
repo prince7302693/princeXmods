@@ -1,36 +1,71 @@
-♛ PrinceXmods
-REWARDS PLATFORM
-Welcome to PrinceXmods
-Watch. Earn.
-Get rewarded.
-A simple place to explore reward opportunities. Secure sign-in, verified ads and UPI payouts will be enabled after the required services are connected.
-
-Prototype mode: this website does not currently serve real ads, credit redeemable coins, collect payments or send UPI withdrawals. Never enter your UPI PIN or banking password here.
-Your demo balance
-0 coins
-Demo only
-Real rewards will appear here only after a verified ad network and secure backend are connected.
-Explore rewards
-▶️
-Watch ads
-Ad provider not connected
-💸
-UPI payout
-Payment system not connected
-🛡️
-Secure account
-Authentication setup pending
-📱
-Mobile ready
-Responsive layout
-Account access
-Sign-in and registration will work once secure authentication is configured.
-
-Login
-Sign up
-Email address
-you@example.com
-Password
-Your password
- Continue
-© 2026 PrinceXmods · Built for mobile and desktop
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090d18">
+<title>PrinceXmods — Rewards</title>
+<style>
+:root{--bg:#090d18;--panel:#111a2b;--panel2:#17243a;--text:#f4f7ff;--muted:#9aa8c2;--line:#263552;--blue:#638cff;--cyan:#50d6e8;--gold:#ffd166}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 85% 0%,#172b55 0,transparent 34%),var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+.wrap{width:min(100% - 28px,760px);margin:auto}.top{display:flex;align-items:center;justify-content:space-between;padding:20px 0}.brand{font-weight:900;font-size:1.25rem;letter-spacing:.2px}.crown{color:var(--gold)}.pill{border:1px solid #38517e;color:#c9d8ff;padding:6px 11px;border-radius:99px;font-size:.78rem}
+.hero{padding:24px 0 18px}.eyebrow{color:var(--cyan);font-size:.78rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.hero h1{font-size:clamp(2rem,8vw,3.2rem);line-height:1.08;margin:8px 0 12px}.hero p{color:var(--muted);max-width:560px;margin:0}
+.card{background:linear-gradient(145deg,#15233b,#101827);border:1px solid var(--line);border-radius:20px;padding:18px;margin:14px 0;box-shadow:0 12px 35px #0003}
+.balance{display:flex;justify-content:space-between;align-items:center;gap:12px}.balance strong{font-size:2rem;color:var(--gold)}.muted{color:var(--muted);font-size:.9rem}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.tile{background:#0d1524;border:1px solid var(--line);border-radius:15px;padding:15px}.tile b{display:block;margin:5px 0}.tile small{color:var(--muted)}
+button{border:0;border-radius:12px;padding:13px 16px;background:linear-gradient(90deg,#4f7cff,#4d9fff);color:white;font-weight:800;font-size:.95rem;cursor:pointer;width:100%}button.secondary{background:#1b2b45;border:1px solid #38517e}button:disabled{opacity:.6;cursor:not-allowed}
+.section-title{font-size:1.1rem;margin:22px 0 8px}.notice{border:1px solid #765b24;background:#2a2112;color:#ffe3a1;border-radius:14px;padding:13px;font-size:.88rem}
+.tabs{display:flex;gap:8px;margin:14px 0}.tabs button{width:auto;flex:1}.tabs button.active{background:#294a87}
+label{display:block;color:#cbd6eb;font-size:.88rem;margin:12px 0 5px}input{width:100%;padding:13px;border-radius:11px;border:1px solid var(--line);background:#0a1220;color:white;font-size:1rem}
+footer{color:var(--muted);font-size:.8rem;text-align:center;padding:24px 0 36px}
+.hidden{display:none!important}
+@media(max-width:430px){.grid{grid-template-columns:1fr 1fr}.card{padding:15px}.balance{align-items:flex-start;flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><div class="brand"><span class="crown">♛</span> PrinceXmods</div><span class="pill">REWARDS PLATFORM</span></header>
+<main>
+<section class="hero">
+<div class="eyebrow">Welcome to PrinceXmods</div>
+<h1>Watch. Earn.<br><span style="color:#75a0ff">Get rewarded.</span></h1>
+<p>A simple place to explore reward opportunities. Secure sign-in, verified ads and UPI payouts will be enabled after the required services are connected.</p>
+</section>
+<div class="notice">Prototype mode: this website does not currently serve real ads, credit redeemable coins, collect payments or send UPI withdrawals. Never enter your UPI PIN or banking password here.</div>
+<section class="card">
+<div class="balance"><div><div class="muted">Your demo balance</div><strong>0 <span style="font-size:1rem">coins</span></strong></div><span class="pill">Demo only</span></div>
+<div class="muted" style="margin-top:8px">Real rewards will appear here only after a verified ad network and secure backend are connected.</div>
+</section>
+<h2 class="section-title">Explore rewards</h2>
+<div class="grid">
+<div class="tile"><div style="font-size:1.5rem">▶️</div><b>Watch ads</b><small>Ad provider not connected</small></div>
+<div class="tile"><div style="font-size:1.5rem">💸</div><b>UPI payout</b><small>Payment system not connected</small></div>
+<div class="tile"><div style="font-size:1.5rem">🛡️</div><b>Secure account</b><small>Authentication setup pending</small></div>
+<div class="tile"><div style="font-size:1.5rem">📱</div><b>Mobile ready</b><small>Responsive layout</small></div>
+</div>
+<section class="card">
+<h2 style="margin:0 0 4px">Account access</h2>
+<p class="muted" style="margin:0">Sign-in and registration will work once secure authentication is configured.</p>
+<div class="tabs"><button class="active" type="button" onclick="showTab('login',this)">Login</button><button class="secondary" type="button" onclick="showTab('signup',this)">Sign up</button></div>
+<form id="login" onsubmit="demoAuth(event,'Login')">
+<label>Email address</label><input type="email" placeholder="you@example.com" autocomplete="email" required>
+<label>Password</label><input type="password" placeholder="Your password" autocomplete="current-password" required>
+<button style="margin-top:16px" type="submit">Continue</button>
+</form>
+<form id="signup" class="hidden" onsubmit="demoAuth(event,'Sign up')">
+<label>Your name</label><input type="text" placeholder="Your name" autocomplete="name" required>
+<label>Email address</label><input type="email" placeholder="you@example.com" autocomplete="email" required>
+<label>Create password</label><input type="password" placeholder="At least 8 characters" minlength="8" autocomplete="new-password" required>
+<button style="margin-top:16px" type="submit">Create account</button>
+</form>
+<p id="message" class="muted" aria-live="polite"></p>
+</section>
+</main>
+<footer>© 2026 PrinceXmods · Built for mobile and desktop</footer>
+</div>
+<script>
+function showTab(id,btn){document.getElementById('login').classList.toggle('hidden',id!=='login');document.getElementById('signup').classList.toggle('hidden',id!=='signup');document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));btn.classList.add('active');document.getElementById('message').textContent='';}
+function demoAuth(e,action){e.preventDefault();document.getElementById('message').textContent=action+' is a visual prototype only. Secure authentication has not been connected yet. Your details were not saved.';}
+</script>
+</body>
+</html>
